@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&family=Lato:wght@300&family=Orbitron:wght@600;700;800&family=Poppins:wght@200&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+    <title>Calculadora</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            font-family: 'josefin sans';
+            width: 40vh;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            flex-direction: column;
+            background-color: transparent;
+            padding: 8vh;
+            border-radius: 2vh;
+            backdrop-filter: blur(5px);
+            border-color: black;
+            box-shadow: 0 0 10px black;
+        }
+        input{
+            border: transparent;
+            text-align: center;
+            font-weight: 600;
+            font-family: 'josefin sans';
+            font-size: 20px;
+            width: 45vh;
+            height: 5vh;
+            border-radius: 10px; outline: none;
+        }
+        button[id="btn"]{
+            font-family: 'josefin sans';
+            width: 15vh;
+            height: 8vh;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        button[id="btn"]{
+            border-color: yellow;
+            background: transparent;
+            box-shadow: 0 0 35px yellow;
+        }
+        button[id="btn"]:hover{
+            border-color: yellow;
+            background: yellow;
+            color: black;
+            transition: 0.3s ease-in-out;
+        }
+        img{
+            width: 212vh;
+            height: 101vh;
+        }
+        body{
+            overflow: hidden;
+        }
+        @media(max-width: 360px){
+            img{
+                width: 55vh;
+                height: 115vh;
+            }
+            .container{
+                padding: 35px;
+                margin-left: 3vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="fundo.jpg" alt="fundo">
+    <div class="container">
+        <h1>Calculadora</h1><br>
+        <input type="number" id="n1" placeholder="número 1"><br>
+        <input type="number" id="n2" placeholder="número 2"><br>
+        <div class="btn">
+        <center><button onclick="soma()" id="btn">Somar</button>
+        <button onclick="subtrai()" id="btn">Subtrair</button>
+        <button onclick="divide()" id="btn">Dividir</button>
+        <button onclick="multiplica()" id="btn">Multiplicar</button>
+        <button onclick="porcentagem()" id="btn">Porcentagem</button>
+        <button onclick="limpa()" id="btn">Limpar</button></center>
+    </div>
+    </div>
+</body>
+</html>
