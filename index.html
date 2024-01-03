@@ -66,18 +66,38 @@
         body{
             overflow: hidden;
         }
-        @media(max-width: 360px){
+        /* Smartphones (600px para baixo) */
+        @media only screen and (max-width: 600px) {
             body{
-                overflow: hidden;
+                background-color: red;
+        }
+
+        /* Dispositivos um pouco maiores, mas ainda pequenos (Pequenos Tablets e Smartphones + largos, 600px para cima) */
+        @media only screen and (min-width: 600px) {
+            body{
+                background-color: yellow;
+        }
+
+        /*Dispostivos Médios (Tablets deitados, 768px para cima) */
+        @media only screen and (min-width: 768px) {
+            body{
+            background-color: pink;
             }
-            img{
-                width: 500vh;
-                height: 115vh;
+        }
+
+        /* Dispostivos Largos (laptops/desktops, 992px para cima) */
+        @media only screen and (min-width: 992px) {
+            body{
+            background-color: green;
             }
-            .container{
-                padding: 35px;
-                margin-left: 3vh;
+        }
+
+        /* Super Largos (Telas maiores laptops, desktops e até TVs, 1200px para cima) */
+        @media only screen and (min-width: 1200px) {
+            body{
+            background-color: blue;
             }
+        }
         }
     </style>
 </head>
