@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Orbitron:wght@600;700;800&family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <title>Contador</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            overflow: hidden;
+        }
+        .container{
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 40px;
+            width: 55vh;
+            height: 70vh;
+            display: flex;
+            border-radius: 3.5vh;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 10vh;
+            font-family: 'Orbitron';
+            }
+            .neon {
+             font-size: 5vh;
+             width: 30vh;
+             height: 10vh;
+             font-family: 'Orbitron';
+             cursor: pointer;
+             background: transparent;
+             text-align: center;
+             display: inline-block;
+             color: black;
+             border: rgb(233, 118, 11) 8px solid;
+             border-radius: 16px;
+             box-shadow: inset 0 0 32px 0 rgb(233, 118, 11), 0 0 32px 0 rgb(233, 118, 11);
+             }
+
+            /* Reflexo do botão */
+            .neon::before {
+              content: "";
+              position: absolute;
+              top: 120%;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              transform: perspective(64px) rotateX(40deg) scale(1, 0.35);
+              filter: blur(64px);
+              opacity: 0.7;
+              pointer-events: none;
+            }
+
+        /* Estilos para hover */
+        .neon::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          box-shadow: 0 0 128px 32px rgb(233, 118, 11);
+          opacity: 0;
+        
+          z-index: -1;
+          transition: opacity 100ms linear;
+        }
+
+
+        .neon:hover {
+          transition: 0.4s;
+          background: rgb(233, 118, 11);
+          color: white;
+          text-shadow: none;
+        }
+
+        img{
+            width: 212vh;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <img src="pais.webp">
+    <div class="container">
+    <h1 id="contador">0</h1>
+    <button class="neon" id="soma" onclick="incrementar()">+</button>
+    <button class="neon" id="subtrai" onclick="diminuir()">-</button>
+    <button class="neon" id="para" onclick="zerar()">Resetar</button>
+    </div>
+
+    <script>
+        let contador = document.getElementById("contador");
+        contador.innerText = localStorage.getItem("contador") || "0";
+        function incrementar(){
+           contador.innerText = parseInt(contador.innerText) + 1;
+           salvarContador();
+        }
+        function diminuir(){
+           contador.innerText = parseInt(contador.innerText) - 1;
+           salvarContador();
+        }
+        function zerar(){
+           contador.innerText = "0";
+           salvarContador();
+        }
+        function salvarContador(){
+            localStorage.setItem("contador", contador.innerText);
+        }
+    </script>
+
+</body>
+</html>
